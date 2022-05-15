@@ -4,12 +4,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="swipe_left_for_register">Crée compte</string>
-    <string name="login">Login</string>
+    <string name="login">Connexion</string>
     <string name="password">Mot de passe </string>
     <string name="e_mail">Email</string>
     <string name="tag"> tag </string>
     <string name="swipe_right_for_login">Login</string>
-    <string name="register">Crée</string>
-    <string name="re_type_password">re taper mot de passe </string>
+    <string name="register">Crée compte</string>
     <string name="your_name">Nom</string>
+    <string name="your_prename">Prenom</string>
+    <string name="your_addresse">Addresse</string>
+
 </resources>
