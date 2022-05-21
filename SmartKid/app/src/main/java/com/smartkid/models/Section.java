@@ -11,26 +11,34 @@ import com.google.gson.annotations.SerializedName;
 
 import java.sql.Timestamp;
 
-@Entity(tableName = "lecon")
-public class Lecon {
+@Entity(tableName = "section")
+public class Section {
     @Expose
     @SerializedName("_id")
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "_id")
     String _id;
     @Expose
-    @SerializedName("chapitre")
-    @ColumnInfo(name = "chapitre")
+    @SerializedName("lecon")
+    @ColumnInfo(name = "lecon")
     @Embedded
-    Chapitre chapitre;
+    Lecon lecon;
     @Expose
     @SerializedName("titre")
     @ColumnInfo(name = "titre")
     String titre;
     @Expose
-    @SerializedName("nbreQuestion")
-    @ColumnInfo(name = "nbreQuestion")
-    int nbreQuestion;
+    @SerializedName("contenu")
+    @ColumnInfo(name = "contenu")
+    String contenu;
+    @Expose
+    @SerializedName("video")
+    @ColumnInfo(name = "video")
+    String[] video;
+    @Expose
+    @SerializedName("image")
+    @ColumnInfo(name = "image")
+    String[] image;
     @Expose
     @SerializedName("ordre")
     @ColumnInfo(name = "ordre")
@@ -40,17 +48,19 @@ public class Lecon {
     @ColumnInfo(name = "createdAt")
     Timestamp createdAt;
 
-    public Lecon(String _id, Chapitre chapitre, String titre, int nbreQuestion, int ordre, Timestamp createdAt) {
+    public Section(String _id, Lecon lecon, String titre, String contenu, String[] video, String[] image, int ordre, Timestamp createdAt) {
         this._id = _id;
-        this.chapitre = chapitre;
+        this.lecon = lecon;
         this.titre = titre;
-        this.nbreQuestion = nbreQuestion;
+        this.contenu = contenu;
+        this.video = video;
+        this.image = image;
         this.ordre = ordre;
         this.createdAt = createdAt;
     }
 
     @Ignore
-    public Lecon() {}
+    public Section() {}
 
     public String get_id() {
         return _id;
@@ -60,12 +70,12 @@ public class Lecon {
         this._id = _id;
     }
 
-    public Chapitre getChapitre() {
-        return chapitre;
+    public Lecon getLecon() {
+        return lecon;
     }
 
-    public void setChapitre(Chapitre chapitre) {
-        this.chapitre = chapitre;
+    public void setLecon(Lecon lecon) {
+        this.lecon = lecon;
     }
 
     public String getTitre() {
@@ -76,12 +86,28 @@ public class Lecon {
         this.titre = titre;
     }
 
-    public int getNbreQuestion() {
-        return nbreQuestion;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setNbreQuestion(int nbreQuestion) {
-        this.nbreQuestion = nbreQuestion;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
+    }
+
+    public String[] getVideo() {
+        return video;
+    }
+
+    public void setVideo(String[] video) {
+        this.video = video;
+    }
+
+    public String[] getImage() {
+        return image;
+    }
+
+    public void setImage(String[] image) {
+        this.image = image;
     }
 
     public int getOrdre() {
