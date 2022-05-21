@@ -8,6 +8,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.smartkid.activity.LoginFragment;
+import com.smartkid.activity.RegisterFragment;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
