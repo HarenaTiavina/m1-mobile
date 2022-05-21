@@ -1,10 +1,10 @@
 package com.smartkid.models;
 
 import androidx.room.ColumnInfo;
-import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import androidx.room.Relation;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +21,7 @@ public class Chapitre {
     @Expose
     @SerializedName("matiere")
     @ColumnInfo(name = "matiere")
-    @Embedded
+    @Relation(parentColumn = "matiere", entityColumn = "_id")
     Matiere matiere;
     @Expose
     @SerializedName("titre")
