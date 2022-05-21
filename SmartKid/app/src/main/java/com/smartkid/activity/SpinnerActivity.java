@@ -1,4 +1,4 @@
-package com.smartkid;
+package com.smartkid.activity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Spinner;
+
+import com.smartkid.R;
 
 public class SpinnerActivity extends AppCompatActivity {
 
