@@ -1,29 +1,43 @@
 package com.smartkid.models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.sql.Timestamp;
 
+@Entity(tableName = "profil")
 public class Profil {
     @Expose
     @SerializedName("_id")
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "_id")
     String _id;
     @Expose
     @SerializedName("nom")
+    @ColumnInfo(name = "nom")
     String nom;
     @Expose
     @SerializedName("dateNaissance")
+    @ColumnInfo(name = "dateNaissance")
     Timestamp dateNaissance;
     @Expose
     @SerializedName("sexe")
+    @ColumnInfo(name = "sexe")
     boolean sexe;
     @Expose
     @SerializedName("status")
+    @ColumnInfo(name = "status")
     boolean status;
     @Expose
     @SerializedName("createdAt")
+    @ColumnInfo(name = "createdAt")
     Timestamp createdAt;
+
 
     public Profil(String _id, String nom, Timestamp dateNaissance, boolean sexe, boolean status, Timestamp createdAt) {
         this._id = _id;
@@ -34,6 +48,7 @@ public class Profil {
         this.createdAt = createdAt;
     }
 
+    @Ignore
     public Profil() {}
 
     public String get_id() {

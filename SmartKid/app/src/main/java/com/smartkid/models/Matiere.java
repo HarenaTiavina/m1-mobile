@@ -1,26 +1,39 @@
 package com.smartkid.models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "matiere")
 public class Matiere {
     @Expose
     @SerializedName("_id")
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "_id")
     String _id;
     @Expose
     @SerializedName("titre")
+    @ColumnInfo(name = "titre")
     String titre;
     @Expose
     @SerializedName("description")
+    @ColumnInfo(name = "description")
     String description;
     @Expose
     @SerializedName("icone")
+    @ColumnInfo(name = "icone")
     String icone;
     @Expose
     @SerializedName("couleur")
+    @ColumnInfo(name = "couleur")
     String couleur;
     @Expose
     @SerializedName("createdAt")
+    @ColumnInfo(name = "createdAt")
     String createdAt;
 
     public Matiere(String _id, String titre, String description, String icone, String couleur, String createdAt) {
@@ -32,6 +45,7 @@ public class Matiere {
         this.createdAt = createdAt;
     }
 
+    @Ignore
     public Matiere() {}
 
     public String get_id() {
