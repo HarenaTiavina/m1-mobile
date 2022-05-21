@@ -8,8 +8,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
-import com.smartkid.fragment.LoginFragment;
-import com.smartkid.fragment.RegisterFragment;
+import com.smartkid.ui.fragment.LoginFragment;
+import com.smartkid.ui.fragment.RegisterFragment;
 
 import java.util.ArrayList;
 

@@ -1,17 +1,14 @@
-package com.smartkid.activity;
+package com.smartkid.ui.activity;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
 import android.widget.Spinner;
 
 import com.smartkid.R;

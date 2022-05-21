@@ -1,4 +1,4 @@
-package com.smartkid.fragment;
+package com.smartkid.ui.fragment;
 
 import android.os.Bundle;
 
