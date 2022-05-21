@@ -2,7 +2,9 @@ package com.smartkid.utils;
 
 import com.smartkid.models.Compte;
 
-public class LoginResponse {
+import java.io.Serializable;
+
+public class LoginResponse implements Serializable {
     String status;
     String token;
     Compte compte;
