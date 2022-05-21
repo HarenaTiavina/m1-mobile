@@ -12,7 +12,7 @@
         android:text="@string/app_name"
         android:textSize="50sp"
         android:fontFamily="@font/indigo_daisy"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="110dp"
         android:layout_marginBottom="10dp"
         android:layout_above="@id/tv_subtitle"/>
 
@@ -21,24 +21,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/et_email"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/login"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/et_email"
+        android:layout_marginStart="230dp"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/register"
+        android:textSize="17sp"
+        android:enabled="true"/>
 
     <EditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
-    android:layout_height="50dp"
-        android:hint="@string/e_mail"
+        android:layout_height="50dp"
+        android:layout_above="@id/et_password"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:padding="15dp"
-        android:inputType="textEmailAddress"
-        android:fontFamily="@font/roboto_regular"
-        android:layout_above="@id/et_password"
+        android:layout_marginTop="100dp"
         android:background="@drawable/et_custom"
+        android:fontFamily="@font/roboto_regular"
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
         android:textSize="15sp" />
 
     <EditText
@@ -68,23 +83,4 @@
         android:fontFamily="@font/roboto_regular"
         android:text="@string/login"
         android:textColor="@android:color/white" />
-
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/ic_arrow_right"
-        android:layout_above="@id/swipeRight"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:id="@+id/swipeRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/swipe_left_for_register"
-        android:textSize="15sp"
-        android:fontFamily="@font/roboto_regular"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"/>
-
 </RelativeLayout>

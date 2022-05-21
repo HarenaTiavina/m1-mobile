@@ -8,8 +8,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.smartkid.ui.fragment.LogProfile;
 import com.smartkid.ui.fragment.LoginFragment;
 import com.smartkid.ui.fragment.RegisterFragment;
+import com.smartkid.ui.fragment.RegisterProfilFragment;
 
 import java.util.ArrayList;
 
@@ -25,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         AuthenticationPagerAdapter pagerAdapter = new AuthenticationPagerAdapter(getSupportFragmentManager());
         pagerAdapter.addFragmet(new LoginFragment());
         pagerAdapter.addFragmet(new RegisterFragment());
+        pagerAdapter.addFragmet(new RegisterProfilFragment());
+        pagerAdapter.addFragmet(new LogProfile());
+        pagerAdapter.addFragmet(new PratiqueFragment());
         viewPager.setAdapter(pagerAdapter);
     }
 
