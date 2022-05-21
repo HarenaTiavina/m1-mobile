@@ -3,6 +3,7 @@ package com.smartkid.utils;
 import android.content.Context;
 
 import com.smartkid.BuildConfig;
+import com.smartkid.R;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,7 +15,7 @@ public class Serializer {
     public static void serialize(Object obj, String filename, Context context) throws IOException {
         ObjectOutputStream oos = null;
         try{
-            FileOutputStream fos = context.openFileOutput(BuildConfig.SERIALIZATION_PATH+filename, Context.MODE_PRIVATE);
+            FileOutputStream fos = context.openFileOutput(R.string.SERIALIZATION_PATH+filename, Context.MODE_PRIVATE);
             oos =  new ObjectOutputStream(fos);
             oos.writeObject(obj);
             oos.flush();
@@ -32,7 +33,7 @@ public class Serializer {
         Object value;
         ObjectInputStream ois = null;
         try{
-            FileInputStream fis = context.openFileInput(BuildConfig.SERIALIZATION_PATH+filename);
+            FileInputStream fis = context.openFileInput(R.string.SERIALIZATION_PATH+filename);
             ois = new ObjectInputStream(fis);
             value = ois.readObject();
         }
