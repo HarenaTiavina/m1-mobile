@@ -1,7 +1,6 @@
 package com.smartkid.datasource.api;
 
 import com.smartkid.models.Compte;
-import com.smartkid.models.Profil;
 import com.smartkid.utils.ApiResponse;
 import com.smartkid.utils.LoginResponse;
 
