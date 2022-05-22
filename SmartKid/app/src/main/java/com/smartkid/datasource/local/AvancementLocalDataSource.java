@@ -1,4 +1,4 @@
-package com.smartkid.datasource.room;
+package com.smartkid.datasource.local;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -8,7 +8,7 @@ import androidx.room.Query;
 import com.smartkid.models.Avancement;
 
 @Dao
-public interface AvancementDAO {
+public interface AvancementLocalDataSource {
     @Insert
     void insertOne(Avancement avancement);
 

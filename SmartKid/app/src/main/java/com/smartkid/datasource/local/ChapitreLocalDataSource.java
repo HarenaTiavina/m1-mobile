@@ -1,4 +1,4 @@
-package com.smartkid.datasource.room;
+package com.smartkid.datasource.local;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -10,7 +10,7 @@ import com.smartkid.models.Chapitre;
 import java.util.List;
 
 @Dao
-public interface ChapitreDAO {
+public interface ChapitreLocalDataSource {
     @Insert
     void insertOne(Chapitre chapitre);
 

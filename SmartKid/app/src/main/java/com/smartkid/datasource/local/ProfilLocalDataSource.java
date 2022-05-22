@@ -1,4 +1,4 @@
-package com.smartkid.datasource.room;
+package com.smartkid.datasource.local;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -7,8 +7,10 @@ import androidx.room.Query;
 
 import com.smartkid.models.Profil;
 
+import java.util.List;
+
 @Dao
-public interface ProfilDAO {
+public interface ProfilLocalDataSource {
     @Insert
     void insertOne(Profil profil);
 
@@ -16,7 +18,7 @@ public interface ProfilDAO {
     void insertMany(Profil... profils);
 
     @Query("SELECT * from profil")
-    Profil[] findAll();
+    List<Profil> findAll();
 
     @Query("SELECT * from profil where _id=:id")
     Profil find(String id);

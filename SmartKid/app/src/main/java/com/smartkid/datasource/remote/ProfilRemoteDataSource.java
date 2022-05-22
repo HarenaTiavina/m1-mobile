@@ -1,4 +1,4 @@
-package com.smartkid.datasource.api;
+package com.smartkid.datasource.remote;
 
 import com.smartkid.models.Profil;
 import com.smartkid.utils.ApiResponse;
@@ -12,7 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface ProfilApi {
+public interface ProfilRemoteDataSource {
     @POST("api/profil")
     Call<ApiResponse<Profil>> create(@Header("Authorization") String bearer);
 

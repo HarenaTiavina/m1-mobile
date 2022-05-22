@@ -1,4 +1,4 @@
-package com.smartkid.datasource.room;
+package com.smartkid.datasource.local;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -10,7 +10,7 @@ import com.smartkid.models.Section;
 import java.util.List;
 
 @Dao
-public interface SectionDAO {
+public interface SectionLocalDataSource {
     @Insert
     void insertOne(Section section);
 
