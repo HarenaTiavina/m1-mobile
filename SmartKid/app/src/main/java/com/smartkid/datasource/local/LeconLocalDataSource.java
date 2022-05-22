@@ -1,5 +1,6 @@
 package com.smartkid.datasource.local;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -18,7 +19,7 @@ public interface LeconLocalDataSource {
     void insertMany(Lecon... lecons);
 
     @Query("SELECT * FROM lecon WHERE chapitre__id=:chapitre")
-    List<Lecon> findAll(String chapitre);
+    LiveData<List<Lecon>> findAll(String chapitre);
 
     @Query("SELECT * FROM lecon WHERE _id=:id")
     Lecon find(String id);

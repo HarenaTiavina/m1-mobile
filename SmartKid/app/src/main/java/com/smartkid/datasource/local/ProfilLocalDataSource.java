@@ -1,5 +1,6 @@
 package com.smartkid.datasource.local;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -18,7 +19,7 @@ public interface ProfilLocalDataSource {
     void insertMany(Profil... profils);
 
     @Query("SELECT * from profil")
-    List<Profil> findAll();
+    LiveData<List<Profil>> findAll();
 
     @Query("SELECT * from profil where _id=:id")
     Profil find(String id);

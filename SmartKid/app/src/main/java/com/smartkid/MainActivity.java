@@ -7,20 +7,31 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.util.Log;
 
+import com.smartkid.models.Profil;
+import com.smartkid.repositories.ProfilRepository;
+import com.smartkid.ui.activity.MainViewModel;
 import com.smartkid.ui.fragment.LogProfile;
 import com.smartkid.ui.fragment.LoginFragment;
 import com.smartkid.ui.fragment.RegisterFragment;
 import com.smartkid.ui.fragment.RegisterProfilFragment;
+import com.smartkid.utils.AppDatabase;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    MainViewModel mainViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainViewModel = new MainViewModel(getApplication());
 
         ViewPager viewPager = findViewById(R.id.viewPager);
 

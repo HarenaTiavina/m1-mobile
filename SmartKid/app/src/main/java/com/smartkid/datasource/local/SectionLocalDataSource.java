@@ -1,5 +1,6 @@
 package com.smartkid.datasource.local;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -18,7 +19,7 @@ public interface SectionLocalDataSource {
     void insertMany(Section... sections);
 
     @Query("SELECT * FROM section WHERE lecon__id=:lecon")
-    List<Section> findAll(String lecon);
+    LiveData<List<Section>> findAll(String lecon);
 
     @Query("SELECT * FROM section WHERE _id=:id")
     Section find(String id);

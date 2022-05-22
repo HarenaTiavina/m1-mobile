@@ -3,12 +3,19 @@ package com.smartkid.ui.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.smartkid.R;
+import com.smartkid.models.Profil;
+import com.smartkid.ui.activity.MainViewModel;
+
+import java.sql.Timestamp;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +23,7 @@ import com.smartkid.R;
  * create an instance of this fragment.
  */
 public class LoginFragment extends Fragment {
+    MainViewModel mainViewModel;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +69,22 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
         return inflater.inflate(R.layout.fragment_login, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button btn = view.findViewById(R.id.btn_login);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Profil p = new Profil(String.valueOf(System.currentTimeMillis()),"Jean Jacques", Timestamp.valueOf("2022-04-12 18:18:23.577"), true, true, new Timestamp(System.currentTimeMillis()));
+                LoginFragment.this.mainViewModel.insertProfil(p);
+            }
+        });
     }
 }

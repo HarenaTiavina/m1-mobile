@@ -1,11 +1,14 @@
 package com.smartkid.datasource.local;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.smartkid.models.Matiere;
+
+import java.util.List;
 
 @Dao
 public interface MatiereLocalDataSource {
@@ -16,7 +19,7 @@ public interface MatiereLocalDataSource {
     void insertMany(Matiere... matieres);
 
     @Query("SELECT * FROM matiere")
-    Matiere[] findAll();
+    LiveData<List<Matiere>> findAll();
 
     @Query("SELECT * FROM matiere WHERE _id=:id")
     Matiere find(String id);
