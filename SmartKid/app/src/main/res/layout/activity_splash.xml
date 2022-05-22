@@ -32,11 +32,11 @@
         android:id="@+id/splashScreenAnimation"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/splash"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        tools:layout_editor_absoluteX="0dp" />
 
     <ImageView
         android:id="@+id/splashScreenLogo"

@@ -5,29 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/sky"
     tools:context=".ui.fragment.RegisterProfilFragment">
 
-    <TextView
-        android:id="@+id/tv_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textSize="50sp"
-        android:layout_marginStart="110dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/indigo_daisy"
-        android:layout_marginTop="60dp"/>
+    <LinearLayout
+        android:id="@+id/linearLogo"
+        android:layout_width="match_parent"
+        android:layout_height="217dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_subtitle"
+        <ImageView
+            android:id="@+id/splashScreenLogo"
+            android:layout_width="203dp"
+            android:layout_height="110dp"
+            android:layout_marginLeft="80dp"
+            android:src="@drawable/logo_trans" />
+
+        <TextView
+            android:id="@+id/splashScreenAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_subtitle"
+            android:layout_marginLeft="70dp"
+            android:layout_marginBottom="-47dp"
+            android:fontFamily="casual"
+            android:text="@string/app_name"
+            android:textSize="50sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register_profil"
-        android:textSize="17sp"
-        android:fontFamily="@font/roboto_regular"
-        android:layout_marginStart="150dp"
-        android:layout_marginBottom="50dp"/>
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/et_name"
+            android:text="@string/login"
+            android:textSize="17sp"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="50dp"
+            android:enabled="true"/>
+
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/et_name"
+            android:layout_marginStart="90dp"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/register"
+            android:textSize="17sp"
+            android:enabled="false"/>
+    </LinearLayout>
 
     <EditText
         android:id="@+id/et_name"
@@ -42,78 +75,109 @@
         android:fontFamily="@font/roboto_regular"
         android:background="@drawable/et_custom"
         android:textSize="15sp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="date de naissance"
-        android:textSize="17sp"
-        android:layout_marginStart="20dp"
-        />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:id="@+id/jour"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/et_custom"
+        android:orientation="vertical">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="jour"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:inputType="date" />
+            android:hint="date de naissance"
+            android:textSize="17sp" />
 
-        <EditText
-            android:id="@+id/mois"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="mois"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:inputType="date" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/jour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="jour"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/mois"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="mois"
+                android:inputType="date" />
 
 
-        <EditText
-            android:id="@+id/annee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="annee"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:inputType="date" />
+            <EditText
+                android:id="@+id/annee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="annee"
+                android:inputType="date" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-
-    <CheckBox
-        android:id="@+id/checkBox_checkAll"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+    <LinearLayout
+        android:layout_width="376dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="homme"/>
+        android:layout_marginTop="15dp"
+        android:background="@drawable/et_custom"
+        android:orientation="vertical">
 
-    <CheckBox
-        android:id="@+id/checkBox_ccpp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Femme"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="sexe"
+            android:textSize="17dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkBox_checkAll"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_above="@id/btn_register"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="homme" />
+
+            <CheckBox
+                android:id="@+id/checkBox_ccpp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_above="@id/btn_register"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Femme" />
+        </LinearLayout>
+    </LinearLayout>
 
 
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@drawable/splash_bg">
 
-        <Button
+
+    <Button
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -127,6 +191,6 @@
             android:textColor="@android:color/white" />
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
