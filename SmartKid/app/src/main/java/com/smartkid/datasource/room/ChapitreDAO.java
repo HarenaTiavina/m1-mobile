@@ -7,6 +7,8 @@ import androidx.room.Query;
 
 import com.smartkid.models.Chapitre;
 
+import java.util.List;
+
 @Dao
 public interface ChapitreDAO {
     @Insert
@@ -15,8 +17,8 @@ public interface ChapitreDAO {
     @Insert
     void insertMany(Chapitre... chapitres);
 
-    @Query("SELECT * FROM chapitre WHERE matiere=:matiere")
-    Chapitre[] findAll(String matiere);
+    @Query("SELECT * FROM chapitre WHERE matiere__id=:matiere")
+    List<Chapitre> findAll(String matiere);
 
     @Query("SELECT * FROM chapitre WHERE _id=:id")
     Chapitre find(String id);

@@ -1,10 +1,11 @@
 package com.smartkid.models;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import androidx.room.Relation;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,13 +16,12 @@ import java.sql.Timestamp;
 public class Chapitre {
     @Expose
     @SerializedName("_id")
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "_id")
+    @PrimaryKey
+    @NonNull
     String _id;
     @Expose
     @SerializedName("matiere")
-    @ColumnInfo(name = "matiere")
-    @Relation(parentColumn = "matiere", entityColumn = "_id")
+    @Embedded(prefix = "matiere_")
     Matiere matiere;
     @Expose
     @SerializedName("titre")
@@ -40,6 +40,7 @@ public class Chapitre {
     @ColumnInfo(name = "createdAt")
     Timestamp createdAt;
 
+    @Ignore
     public Chapitre(String _id, Matiere matiere, String titre, String description, int ordre, Timestamp createdAt) {
         this._id = _id;
         this.matiere = matiere;
@@ -49,7 +50,6 @@ public class Chapitre {
         this.createdAt = createdAt;
     }
 
-    @Ignore
     public Chapitre() {}
 
     public String get_id() {

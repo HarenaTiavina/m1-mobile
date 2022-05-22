@@ -1,10 +1,11 @@
 package com.smartkid.models;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import androidx.room.Relation;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,13 +16,12 @@ import java.sql.Timestamp;
 public class Lecon {
     @Expose
     @SerializedName("_id")
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "_id")
+    @PrimaryKey
+    @NonNull
     String _id;
     @Expose
     @SerializedName("chapitre")
-    @ColumnInfo(name = "chapitre")
-    @Relation(parentColumn = "chapitre", entityColumn = "_id")
+    @Embedded(prefix = "chapitre_")
     Chapitre chapitre;
     @Expose
     @SerializedName("titre")
@@ -40,6 +40,7 @@ public class Lecon {
     @ColumnInfo(name = "createdAt")
     Timestamp createdAt;
 
+    @Ignore
     public Lecon(String _id, Chapitre chapitre, String titre, int nbreQuestion, int ordre, Timestamp createdAt) {
         this._id = _id;
         this.chapitre = chapitre;
@@ -49,7 +50,6 @@ public class Lecon {
         this.createdAt = createdAt;
     }
 
-    @Ignore
     public Lecon() {}
 
     public String get_id() {

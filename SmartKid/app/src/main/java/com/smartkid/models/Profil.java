@@ -1,5 +1,6 @@
 package com.smartkid.models;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
@@ -14,8 +15,8 @@ import java.sql.Timestamp;
 public class Profil {
     @Expose
     @SerializedName("_id")
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "_id")
+    @PrimaryKey
+    @NonNull
     String _id;
     @Expose
     @SerializedName("nom")
@@ -38,7 +39,7 @@ public class Profil {
     @ColumnInfo(name = "createdAt")
     Timestamp createdAt;
 
-
+    @Ignore
     public Profil(String _id, String nom, Timestamp dateNaissance, boolean sexe, boolean status, Timestamp createdAt) {
         this._id = _id;
         this.nom = nom;
@@ -48,7 +49,6 @@ public class Profil {
         this.createdAt = createdAt;
     }
 
-    @Ignore
     public Profil() {}
 
     public String get_id() {

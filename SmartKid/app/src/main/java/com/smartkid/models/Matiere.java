@@ -1,5 +1,6 @@
 package com.smartkid.models;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
@@ -8,12 +9,14 @@ import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.sql.Timestamp;
+
 @Entity(tableName = "matiere")
 public class Matiere {
     @Expose
     @SerializedName("_id")
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "_id")
+    @PrimaryKey
+    @NonNull
     String _id;
     @Expose
     @SerializedName("titre")
@@ -34,9 +37,10 @@ public class Matiere {
     @Expose
     @SerializedName("createdAt")
     @ColumnInfo(name = "createdAt")
-    String createdAt;
+    Timestamp createdAt;
 
-    public Matiere(String _id, String titre, String description, String icone, String couleur, String createdAt) {
+    @Ignore
+    public Matiere(String _id, String titre, String description, String icone, String couleur, Timestamp createdAt) {
         this._id = _id;
         this.titre = titre;
         this.description = description;
@@ -45,7 +49,6 @@ public class Matiere {
         this.createdAt = createdAt;
     }
 
-    @Ignore
     public Matiere() {}
 
     public String get_id() {
@@ -88,11 +91,11 @@ public class Matiere {
         this.couleur = couleur;
     }
 
-    public String getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 }

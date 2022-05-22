@@ -1,19 +1,30 @@
 package com.smartkid.models;
 
+import androidx.annotation.NonNull;
+import androidx.room.Embedded;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.sql.Timestamp;
 
+@Entity(tableName = "avancement")
 public class Avancement {
     @Expose
     @SerializedName("_id")
+    @PrimaryKey
+    @NonNull
     String _id;
     @Expose
     @SerializedName("lecon")
+    @Embedded(prefix = "lecon_")
     Lecon lecon;
     @Expose
     @SerializedName("profil")
+    @Embedded(prefix = "profil_")
     Profil profil;
     @Expose
     @SerializedName("score")
@@ -22,6 +33,7 @@ public class Avancement {
     @SerializedName("createdAt")
     Timestamp createdAt;
 
+    @Ignore
     public Avancement(String _id, Lecon lecon, Profil profil, int score, Timestamp createdAt) {
         this._id = _id;
         this.lecon = lecon;

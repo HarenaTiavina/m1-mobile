@@ -1,47 +1,31 @@
 package com.smartkid.models;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-import androidx.room.Relation;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.sql.Timestamp;
 
-@Entity(tableName = "question")
 public class Question {
     @Expose
     @SerializedName("_id")
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "_id")
     String _id;
     @Expose
     @SerializedName("lecon")
-    @ColumnInfo(name = "_id")
-    @Relation(parentColumn = "lecon", entityColumn = "_id")
     Lecon lecon;
     @Expose
     @SerializedName("question")
-    @ColumnInfo(name = "question")
     String question;
     @Expose
     @SerializedName("choix")
-    @ColumnInfo(name = "choix")
     String[] choix;
     @Expose
     @SerializedName("reponse")
-    @ColumnInfo(name = "reponse")
     int reponse;
     @Expose
     @SerializedName("cultureGenerale")
-    @ColumnInfo(name = "cultureGenerale")
     boolean cultureGenerale;
     @Expose
     @SerializedName("createdAt")
-    @ColumnInfo(name = "createdAt")
     Timestamp createdAt;
 
     public Question(String _id, Lecon lecon, String question, String[] choix, int reponse, boolean cultureGenerale, Timestamp createdAt) {
@@ -54,7 +38,6 @@ public class Question {
         this.createdAt = createdAt;
     }
 
-    @Ignore
     public Question() {}
 
     public String get_id() {

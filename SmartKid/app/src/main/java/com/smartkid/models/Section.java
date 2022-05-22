@@ -1,10 +1,11 @@
 package com.smartkid.models;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import androidx.room.Relation;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,13 +16,12 @@ import java.sql.Timestamp;
 public class Section {
     @Expose
     @SerializedName("_id")
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "_id")
+    @PrimaryKey
+    @NonNull
     String _id;
     @Expose
     @SerializedName("lecon")
-    @ColumnInfo(name = "lecon")
-    @Relation(parentColumn = "lecon", entityColumn = "_id")
+    @Embedded(prefix = "lecon_")
     Lecon lecon;
     @Expose
     @SerializedName("titre")
@@ -34,11 +34,11 @@ public class Section {
     @Expose
     @SerializedName("video")
     @ColumnInfo(name = "video")
-    String[] video;
+    String video;
     @Expose
     @SerializedName("image")
     @ColumnInfo(name = "image")
-    String[] image;
+    String image;
     @Expose
     @SerializedName("ordre")
     @ColumnInfo(name = "ordre")
@@ -48,7 +48,8 @@ public class Section {
     @ColumnInfo(name = "createdAt")
     Timestamp createdAt;
 
-    public Section(String _id, Lecon lecon, String titre, String contenu, String[] video, String[] image, int ordre, Timestamp createdAt) {
+    @Ignore
+    public Section(String _id, Lecon lecon, String titre, String contenu, String video, String image, int ordre, Timestamp createdAt) {
         this._id = _id;
         this.lecon = lecon;
         this.titre = titre;
@@ -59,7 +60,6 @@ public class Section {
         this.createdAt = createdAt;
     }
 
-    @Ignore
     public Section() {}
 
     public String get_id() {
@@ -94,19 +94,19 @@ public class Section {
         this.contenu = contenu;
     }
 
-    public String[] getVideo() {
+    public String getVideo() {
         return video;
     }
 
-    public void setVideo(String[] video) {
+    public void setVideo(String video) {
         this.video = video;
     }
 
-    public String[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(String[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

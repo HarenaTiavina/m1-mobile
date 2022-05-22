@@ -7,6 +7,8 @@ import androidx.room.Query;
 
 import com.smartkid.models.Lecon;
 
+import java.util.List;
+
 @Dao
 public interface LeconDAO {
     @Insert
@@ -15,8 +17,8 @@ public interface LeconDAO {
     @Insert
     void insertMany(Lecon... lecons);
 
-    @Query("SELECT * FROM lecon WHERE chapitre=:chapitre")
-    Lecon[] findAll(String chapitre);
+    @Query("SELECT * FROM lecon WHERE chapitre__id=:chapitre")
+    List<Lecon> findAll(String chapitre);
 
     @Query("SELECT * FROM lecon WHERE _id=:id")
     Lecon find(String id);

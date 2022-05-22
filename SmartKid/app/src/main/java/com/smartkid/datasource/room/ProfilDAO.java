@@ -18,8 +18,8 @@ public interface ProfilDAO {
     @Query("SELECT * from profil")
     Profil[] findAll();
 
-    @Query("SELECT * from profil where _id=:_id")
-    Profil find(String _id);
+    @Query("SELECT * from profil where _id=:id")
+    Profil find(String id);
 
     @Delete
     void deleteOne(Profil profil);
