@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 
 import com.smartkid.datasource.local.ProfilLocalDataSource;
 import com.smartkid.models.Profil;
-import com.smartkid.utils.AppDatabase;
+import com.smartkid.services.AppDatabase;
 
 import java.util.List;
 

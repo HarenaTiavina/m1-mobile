@@ -1,4 +1,4 @@
-package com.smartkid.utils;
+package com.smartkid.services;
 
 import android.content.Context;
 
@@ -19,6 +19,7 @@ import com.smartkid.models.Lecon;
 import com.smartkid.models.Matiere;
 import com.smartkid.models.Profil;
 import com.smartkid.models.Section;
+import com.smartkid.utils.TimestampConverter;
 
 @TypeConverters({TimestampConverter.class})
 @Database( entities = {Profil.class, Matiere.class, Chapitre.class, Lecon.class, Section.class, Avancement.class},version = 1)
