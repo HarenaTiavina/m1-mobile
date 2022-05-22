@@ -17,4 +17,36 @@
     <string name="your_gender">Genre</string>
     <string name="choose_profile">choix profil</string>
     <string name="pratique">pratique</string>
+
+
+    <!-- PREFERENCES TAILLE DE POLICE -->
+    <string name="pref_font_size_title">Taille de police</string>
+    <string name="pref_font_size_text">Choisissez une taille de police :</string>
+    <string name="pref_font_size_key">pref_font_size</string>
+    <string-array name="pref_font_size_labels">
+        <item>Petit</item>
+        <item>Moyen</item>
+        <item>Grand</item>
+    </string-array>
+    <string-array name="pref_font_size_values">
+        <item>10</item>
+        <item>14</item>
+        <item>18</item>
+    </string-array>
+
+    <!-- PREFERENCES THEME -->
+    <string name="pref_theme_title">Thème sombre</string>
+    <string name="pref_theme_text">Activer ou désactiver le mode sombre</string>
+    <string name="pref_theme_key">pref_theme</string>
+
+    <!-- PREFERENCES SON/MUSIQUE -->
+    <string name="pref_sound_text">Activer ou désactiver le son de l\'application</string>
+    <string name="pref_sound_title">Son</string>
+    <string name="pref_sound_key">pref_sound</string>
+
+    <!-- PREFERENCES NOTIFICATION -->
+    <string name="pref_all_notification_text">Activer ou désactiver les notifications</string>
+    <string name="pref_all_notification_title">Toutes les notifications</string>
+    <string name="pref_all_notification_key">pref_all_notification</string>
+
 </resources>
