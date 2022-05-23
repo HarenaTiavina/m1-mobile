@@ -5,63 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/sky"
     tools:context=".ui.fragment.RegisterFragment">
-
-    <LinearLayout
-        android:id="@+id/linearLogo"
-        android:layout_width="match_parent"
-        android:layout_height="217dp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/splashScreenLogo"
-            android:layout_width="203dp"
-            android:layout_height="110dp"
-            android:layout_marginLeft="80dp"
-            android:src="@drawable/logo_trans" />
-
-        <TextView
-            android:id="@+id/splashScreenAppName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/tv_subtitle"
-            android:layout_marginLeft="70dp"
-            android:layout_marginBottom="-47dp"
-            android:fontFamily="casual"
-            android:text="@string/app_name"
-            android:textSize="50sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/et_name"
-            android:text="@string/login"
-            android:textSize="17sp"
-            android:fontFamily="@font/roboto_regular"
-            android:layout_marginStart="50dp"
-            android:layout_marginBottom="50dp"
-            android:enabled="true"/>
-
-        <TextView
-            android:id="@+id/register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/et_name"
-            android:layout_marginStart="90dp"
-            android:layout_marginBottom="50dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="@string/register"
-            android:textSize="17sp"
-            android:enabled="false"/>
-    </LinearLayout>
-
-
 
     <EditText
         android:id="@+id/et_name"
@@ -69,6 +13,7 @@
         android:layout_height="50dp"
         android:hint="@string/your_name"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
         android:padding="15dp"
@@ -118,27 +63,18 @@
         android:inputType="textPassword"
         android:background="@drawable/et_custom"
         android:textSize="15sp" />
-    <LinearLayout
-        android:layout_width="wrap_content"
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/splash_bg">
-        <Button
-            android:id="@+id/btn_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_custom"
-            android:fontFamily="@font/roboto_regular"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:text="@string/register"/>
-    </LinearLayout>
-
-
-
-
+        android:background="@drawable/btn_custom"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerInParent="true"
+        android:textColor="@android:color/white"
+        android:text="@string/register"/>
 </LinearLayout>
