@@ -8,7 +8,7 @@
     tools:context=".ui.fragment.RegisterFragment">
 
     <EditText
-        android:id="@+id/et_name_register"
+        android:id="@+id/et_lastname_register"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/your_name"
@@ -23,7 +23,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/et_prename_register"
+        android:id="@+id/et_firstname_register"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/your_prename"

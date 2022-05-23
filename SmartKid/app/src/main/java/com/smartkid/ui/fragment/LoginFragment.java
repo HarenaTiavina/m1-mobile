@@ -86,8 +86,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void initComponent(View view){
-        email = view.findViewById(R.id.et_email_signup);
-        password = view.findViewById(R.id.et_password_signup);
+        email = view.findViewById(R.id.et_email_login);
+        password = view.findViewById(R.id.et_password_login);
     }
 
     public void setEventListener(View v){

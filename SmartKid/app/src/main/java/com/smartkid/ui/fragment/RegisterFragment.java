@@ -3,12 +3,16 @@ package com.smartkid.ui.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.smartkid.R;
+import com.smartkid.ui.activity.MainViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +20,11 @@ import com.smartkid.R;
  * create an instance of this fragment.
  */
 public class RegisterFragment extends Fragment {
+    MainViewModel mainViewModel;
+    EditText nom;
+    EditText prenom;
+    EditText email;
+    EditText password;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +70,31 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         return inflater.inflate(R.layout.fragment_register, container, false);
+    }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        initComponent(view);
+        setEventListener(view);
+    }
+
+    private void initComponent(View view){
+        nom = view.findViewById(R.id.et_lastname_register);
+        prenom = view.findViewById(R.id.et_firstname_register);
+        email = view.findViewById(R.id.et_email_register);
+        password = view.findViewById(R.id.et_password_register);
+    }
+
+    public void setEventListener(View v){
+        Button btnLogin = v.findViewById(R.id.btn_register);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainViewModel.register(nom, prenom, email, password);
+            }
+        });
     }
 }

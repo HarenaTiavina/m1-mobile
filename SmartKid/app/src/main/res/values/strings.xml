@@ -9,8 +9,8 @@
     <string name="e_mail">Email</string>
     <string name="tag"> tag </string>
     <string name="swipe_right_for_login">Login</string>
-    <string name="register">Crée compte</string>
-    <string name="register_profil">Crée profil</string>
+    <string name="register">Créer compte</string>
+    <string name="register_profil">Créer profil</string>
     <string name="your_name">Nom</string>
     <string name="your_prename">Prenom</string>
     <string name="your_birthday">Date de Naissance</string>

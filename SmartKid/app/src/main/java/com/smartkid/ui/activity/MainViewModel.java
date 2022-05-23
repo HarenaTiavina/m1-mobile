@@ -17,6 +17,7 @@ import com.smartkid.repositories.ProfilRepository;
 import com.smartkid.services.RetrofitHelper;
 import com.smartkid.utils.ApiResponse;
 import com.smartkid.utils.AppException;
+import com.smartkid.utils.Credentials;
 import com.smartkid.utils.LoginResponse;
 import com.smartkid.utils.Serializer;
 
@@ -52,10 +53,8 @@ public class MainViewModel extends AndroidViewModel {
             String emailValue = email.getText().toString();
             String passwordValue = password.getText().toString();
 
-            int checkEmail = Common.isNullOrEmpty(emailValue);
-            int checkPassword = Common.isNullOrEmpty(passwordValue);
-            if (checkEmail > -1) throw new AppException("Adresse email requise", 0);
-            if (checkPassword > -1) throw new AppException("Mot de passe requis", 1);
+            int check = Common.isNullOrEmpty(emailValue, passwordValue);
+            if (check > -1) throw new AppException("Champ requis", check);
 
             Matcher matcher = Common.VALID_EMAIL_ADDRESS_REGEX.matcher(emailValue);
             if(!matcher.find()) throw new AppException("Veuillez saisir une adresse email valide", 0);
@@ -71,7 +70,8 @@ public class MainViewModel extends AndroidViewModel {
                         LoginResponse res = response.body();
                         if(res == null) throw new Exception("Réponse null");
                         if(res.getStatus().compareTo("error") == 0) throw new Exception(res.getError());
-                        Serializer.serialize(res, "credentials.bin", getApplication());
+                        Serializer.serialize(Credentials.build(res), "credentials.bin", getApplication());
+                        Toast.makeText(getApplication(), "Content de vous revoir, "+res.getCompte().getPrenom(), Toast.LENGTH_SHORT).show();
                     }
                     catch(Exception ex){
                         ex.printStackTrace();
@@ -101,18 +101,65 @@ public class MainViewModel extends AndroidViewModel {
         loader.dismiss();
     }
 
-    public void register(Compte compte){
-        Call<ApiResponse<String>> callRegister = compteApi.signup(compte);
-        callRegister.enqueue(new Callback<ApiResponse<String>>() {
-            @Override
-            public void onResponse(Call<ApiResponse<String>> call, Response<ApiResponse<String>> response) {
+    public void register(EditText nom, EditText prenom, EditText email, EditText password){
+        try{
+            String nomValue = nom.getText().toString();
+            String prenomValue = prenom.getText().toString();
+            String emailValue = email.getText().toString();
+            String passwordValue = password.getText().toString();
 
+            int check = Common.isNullOrEmpty(nomValue, prenomValue, emailValue, passwordValue);
+            if (check > -1) throw new AppException("Champ requis", check);
+
+            Matcher matcher = Common.VALID_EMAIL_ADDRESS_REGEX.matcher(emailValue);
+            if(!matcher.find()) throw new AppException("Veuillez saisir une adresse email valide", 2);
+
+            Compte compte = new Compte(null, nomValue, prenomValue, emailValue, passwordValue, null);
+            Call<ApiResponse<String>> callRegister = compteApi.signup(compte);
+            callRegister.enqueue(new Callback<ApiResponse<String>>() {
+                @Override
+                public void onResponse(Call<ApiResponse<String>> call, Response<ApiResponse<String>> response) {
+                    try{
+                        ApiResponse<String> res = response.body();
+                        if(res == null) throw new Exception("Réponse null");
+                        if(res.getStatus().compareTo("error") == 0) throw new Exception(res.getError());
+                        nom.setText("");
+                        prenom.setText("");
+                        email.setText("");
+                        password.setText("");
+                        Toast.makeText(getApplication(), "Bravo, votre inscription est réussie, vous pouvez à présent vous connecter", Toast.LENGTH_LONG).show();
+                    }
+                    catch(Exception ex){
+                        ex.printStackTrace();
+                        Toast.makeText(getApplication(), ex.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ApiResponse<String>> call, Throwable t) {
+                    Toast.makeText(getApplication(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        catch(AppException appEx){
+            switch (appEx.getKey()) {
+                case 0:
+                    nom.setError(appEx.getMessage());
+                    break;
+                case 1:
+                    prenom.setError(appEx.getMessage());
+                    break;
+                case 2:
+                    email.setError(appEx.getMessage());
+                    break;
+                case 3:
+                    password.setError(appEx.getMessage());
+                    break;
             }
-
-            @Override
-            public void onFailure(Call<ApiResponse<String>> call, Throwable t) {
-
-            }
-        });
+        }
+        catch(Exception ex){
+            Toast.makeText(getApplication(), ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
+
 }
