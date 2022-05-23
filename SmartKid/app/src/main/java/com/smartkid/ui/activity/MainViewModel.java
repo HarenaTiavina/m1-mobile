@@ -25,10 +25,17 @@ public class MainViewModel extends AndroidViewModel {
     private CompteRemoteDataSource compteApi;
     private LoaderDialog loader;
 
-    public MainViewModel(Application application, Activity activity){
+    public MainViewModel(Application application){
         super(application);
         compteApi = RetrofitHelper.getInstance().getCompteApi();
-        loader = new LoaderDialog(activity);
+    }
+
+    public LoaderDialog getLoader() {
+        return loader;
+    }
+
+    public void setLoader(LoaderDialog loader) {
+        this.loader = loader;
     }
 
     public void signup(String email, String password){
@@ -59,13 +66,5 @@ public class MainViewModel extends AndroidViewModel {
 
             }
         });
-    }
-
-    public void show(){
-        loader.show();
-    }
-
-    public void dismiss(){
-        loader.dismiss();
     }
 }

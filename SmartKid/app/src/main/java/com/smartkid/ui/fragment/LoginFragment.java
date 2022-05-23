@@ -71,7 +71,6 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
-
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
@@ -95,7 +94,7 @@ public class LoginFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainViewModel.show();
+                mainViewModel.getLoader().show();
             }
         });
     }

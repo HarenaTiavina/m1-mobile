@@ -12,13 +12,14 @@ public class LoaderDialog {
 
     public LoaderDialog(Activity activity){
         this.activity = activity;
+        initAlertDialog();
     }
 
     private void initAlertDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         LayoutInflater inflater = activity.getLayoutInflater();
         builder.setView(inflater.inflate(R.layout.fragment_loader, null));
-        builder.setCancelable(false);
+        builder.setCancelable(true);
         alertDialog = builder.create();
     }
 
