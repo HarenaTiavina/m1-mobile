@@ -1,30 +1,71 @@
 package com.smartkid.ui.activity;
 
+import android.app.Activity;
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.smartkid.datasource.remote.CompteRemoteDataSource;
+import com.smartkid.datasource.remote.ProfilRemoteDataSource;
+import com.smartkid.models.Compte;
 import com.smartkid.models.Profil;
 import com.smartkid.repositories.ProfilRepository;
+import com.smartkid.services.RetrofitHelper;
+import com.smartkid.utils.ApiResponse;
+import com.smartkid.utils.LoginResponse;
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainViewModel extends AndroidViewModel {
-    private ProfilRepository profilRepository;
-    private LiveData<List<Profil>> data;
+    private CompteRemoteDataSource compteApi;
+    private LoaderDialog loader;
 
-    public MainViewModel(Application application){
+    public MainViewModel(Application application, Activity activity){
         super(application);
-        profilRepository = new ProfilRepository(application);
-        data = profilRepository.getProfils();
+        compteApi = RetrofitHelper.getInstance().getCompteApi();
+        loader = new LoaderDialog(activity);
     }
 
-    public LiveData<List<Profil>> getData() {
-        return data;
+    public void signup(String email, String password){
+        Call<LoginResponse> callLogin = compteApi.login(email, password);
+        callLogin.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+
+            }
+        });
     }
 
-    public void insertProfil(Profil profil){
-        profilRepository.insertDB(profil);
+    public void register(Compte compte){
+        Call<ApiResponse<String>> callRegister = compteApi.signup(compte);
+        callRegister.enqueue(new Callback<ApiResponse<String>>() {
+            @Override
+            public void onResponse(Call<ApiResponse<String>> call, Response<ApiResponse<String>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse<String>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void show(){
+        loader.show();
+    }
+
+    public void dismiss(){
+        loader.dismiss();
     }
 }

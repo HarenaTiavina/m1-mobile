@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.smartkid.MainActivity;
 import com.smartkid.R;
 import com.smartkid.models.Profil;
 import com.smartkid.ui.activity.MainViewModel;
@@ -69,7 +70,7 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
@@ -78,12 +79,23 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button btn = view.findViewById(R.id.btn_login);
-        btn.setOnClickListener(new View.OnClickListener() {
+        //Button btn = view.findViewById(R.id.btn_login);
+        /*btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Profil p = new Profil(String.valueOf(System.currentTimeMillis()),"Jean Jacques", Timestamp.valueOf("2022-04-12 18:18:23.577"), true, true, new Timestamp(System.currentTimeMillis()));
                 LoginFragment.this.mainViewModel.insertProfil(p);
+            }
+        });*/
+        setEventListener(view);
+    }
+
+    public void setEventListener(View v){
+        Button btnLogin = v.findViewById(R.id.btn_login);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainViewModel.show();
             }
         });
     }
