@@ -16,7 +16,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitHelper {
-    public final static String BASE_URL = "http://192.168.8.100:3333/";
+    public final static String BASE_URL = "https://m1-mobile-966-984-api.herokuapp.com/";
     static RetrofitHelper instance = new RetrofitHelper();
 
     private Retrofit retrofit;
