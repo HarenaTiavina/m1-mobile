@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.smartkid.R;
-import com.smartkid.ui.activity.MainViewModel;
+import com.smartkid.ui.viewmodel.MainViewModel;
 
 /**
  * A simple {@link Fragment} subclass.

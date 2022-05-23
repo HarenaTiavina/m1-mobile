@@ -48,5 +48,6 @@
     <string name="pref_all_notification_text">Activer ou désactiver les notifications</string>
     <string name="pref_all_notification_title">Toutes les notifications</string>
     <string name="pref_all_notification_key">pref_all_notification</string>
+    <string name="choix_de_profil">Choix de profil</string>
 
 </resources>

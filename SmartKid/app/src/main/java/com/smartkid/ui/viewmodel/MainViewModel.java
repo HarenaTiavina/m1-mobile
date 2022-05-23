@@ -1,4 +1,4 @@
-package com.smartkid.ui.activity;
+package com.smartkid.ui.viewmodel;
 
 import android.app.Application;
 import android.content.Intent;
@@ -7,10 +7,13 @@ import android.widget.Toast;
 
 import androidx.lifecycle.AndroidViewModel;
 
+import com.smartkid.MainActivity;
 import com.smartkid.datasource.remote.CompteRemoteDataSource;
 import com.smartkid.domainlayer.Common;
 import com.smartkid.models.Compte;
 import com.smartkid.services.RetrofitHelper;
+import com.smartkid.ui.activity.ChoixProfilActivity;
+import com.smartkid.ui.activity.LoaderDialog;
 import com.smartkid.utils.ApiResponse;
 import com.smartkid.utils.AppException;
 import com.smartkid.utils.Credentials;
@@ -68,6 +71,8 @@ public class MainViewModel extends AndroidViewModel {
                         Intent intent = new Intent(getApplication(), ChoixProfilActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         getApplication().startActivity(intent);
+
+                        Intent actual = new Intent(getApplication(), MainActivity.class);
                     }
                     catch(Exception ex){
                         ex.printStackTrace();

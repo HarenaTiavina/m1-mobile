@@ -8,8 +8,8 @@ import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 import com.smartkid.ui.activity.LoaderDialog;
-import com.smartkid.ui.activity.MainAdapter;
-import com.smartkid.ui.activity.MainViewModel;
+import com.smartkid.adapter.MainAdapter;
+import com.smartkid.ui.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;

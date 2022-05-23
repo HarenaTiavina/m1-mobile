@@ -12,10 +12,10 @@ import com.smartkid.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link RegisterProfilFragment#newInstance} factory method to
+ * Use the {@link ListeProfilFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegisterProfilFragment extends Fragment {
+public class ListeProfilFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class RegisterProfilFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public RegisterProfilFragment() {
+    public ListeProfilFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class RegisterProfilFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RegisterProfilFragment.
+     * @return A new instance of fragment ListeProfilFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static RegisterProfilFragment newInstance(String param1, String param2) {
-        RegisterProfilFragment fragment = new RegisterProfilFragment();
+    public static ListeProfilFragment newInstance(String param1, String param2) {
+        ListeProfilFragment fragment = new ListeProfilFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class RegisterProfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_profil, container, false);
+        return inflater.inflate(R.layout.fragment_liste_profil, container, false);
     }
 }
