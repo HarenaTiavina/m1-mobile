@@ -4,10 +4,11 @@ import com.smartkid.models.Compte;
 
 import java.io.Serializable;
 
-public class LoginResponse implements Serializable {
+public class LoginResponse {
     String status;
     String token;
     Compte compte;
+    String error;
 
     public LoginResponse(String status, String token, Compte compte) {
         this.status = status;
@@ -40,4 +41,8 @@ public class LoginResponse implements Serializable {
     public void setCompte(Compte compte) {
         this.compte = compte;
     }
+
+    public String getError() { return error; }
+
+    public void setError(String error) { this.error = error; }
 }

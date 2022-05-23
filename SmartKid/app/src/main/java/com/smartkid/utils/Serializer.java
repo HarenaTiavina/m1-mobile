@@ -12,7 +12,7 @@ public class Serializer {
     public static void serialize(Object obj, String filename, Context context) throws IOException {
         ObjectOutputStream oos = null;
         try{
-            FileOutputStream fos = context.openFileOutput("tmp/"+filename, Context.MODE_PRIVATE);
+            FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
             oos =  new ObjectOutputStream(fos);
             oos.writeObject(obj);
             oos.flush();
@@ -30,7 +30,7 @@ public class Serializer {
         Object value;
         ObjectInputStream ois = null;
         try{
-            FileInputStream fis = context.openFileInput("tmp/"+filename);
+            FileInputStream fis = context.openFileInput(filename);
             ois = new ObjectInputStream(fis);
             value = ois.readObject();
         }

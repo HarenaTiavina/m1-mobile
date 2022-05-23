@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.smartkid.MainActivity;
 import com.smartkid.R;
@@ -25,6 +26,8 @@ import java.sql.Timestamp;
  */
 public class LoginFragment extends Fragment {
     MainViewModel mainViewModel;
+    EditText email;
+    EditText password;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,15 +81,13 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //Button btn = view.findViewById(R.id.btn_login);
-        /*btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Profil p = new Profil(String.valueOf(System.currentTimeMillis()),"Jean Jacques", Timestamp.valueOf("2022-04-12 18:18:23.577"), true, true, new Timestamp(System.currentTimeMillis()));
-                LoginFragment.this.mainViewModel.insertProfil(p);
-            }
-        });*/
+        initComponent(view);
         setEventListener(view);
+    }
+
+    private void initComponent(View view){
+        email = view.findViewById(R.id.et_email_signup);
+        password = view.findViewById(R.id.et_password_signup);
     }
 
     public void setEventListener(View v){
@@ -94,7 +95,7 @@ public class LoginFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainViewModel.getLoader().show();
+                mainViewModel.login(email, password);
             }
         });
     }
