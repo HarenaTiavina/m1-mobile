@@ -1,19 +1,15 @@
 package com.smartkid.ui.activity;
 
-import android.app.Activity;
 import android.app.Application;
+import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
 
 import com.smartkid.datasource.remote.CompteRemoteDataSource;
-import com.smartkid.datasource.remote.ProfilRemoteDataSource;
 import com.smartkid.domainlayer.Common;
 import com.smartkid.models.Compte;
-import com.smartkid.models.Profil;
-import com.smartkid.repositories.ProfilRepository;
 import com.smartkid.services.RetrofitHelper;
 import com.smartkid.utils.ApiResponse;
 import com.smartkid.utils.AppException;
@@ -21,9 +17,6 @@ import com.smartkid.utils.Credentials;
 import com.smartkid.utils.LoginResponse;
 import com.smartkid.utils.Serializer;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 
 import retrofit2.Call;
@@ -72,6 +65,9 @@ public class MainViewModel extends AndroidViewModel {
                         if(res.getStatus().compareTo("error") == 0) throw new Exception(res.getError());
                         Serializer.serialize(Credentials.build(res), "credentials.bin", getApplication());
                         Toast.makeText(getApplication(), "Content de vous revoir, "+res.getCompte().getPrenom(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplication(), ChoixProfilActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        getApplication().startActivity(intent);
                     }
                     catch(Exception ex){
                         ex.printStackTrace();

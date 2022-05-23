@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/sky"
-    tools:context=".ui.fragment.LogProfile">
+    tools:context=".ui.activity.ChoixProfilActivity">
 
     <LinearLayout
         android:id="@+id/linearLogo"
